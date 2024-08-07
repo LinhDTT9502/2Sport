@@ -72,7 +72,7 @@ const ProductList = ({ sortBy, isAscending, selectedBrands, selectedCategories, 
           }
         });
       } catch (error) {
-        console.error('Error checking warehouse quantities:', error);
+        console.error('Error checking warehouse quantities: ', error);
       }
     };
 
@@ -81,7 +81,7 @@ const ProductList = ({ sortBy, isAscending, selectedBrands, selectedCategories, 
 
   const handleAddToCart = async (product, quantityToAdd = 1) => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (token) {  
       try {
         const newQuantity = quantity + quantityToAdd;
         await addToCart(product.id, newQuantity, token);

@@ -38,18 +38,21 @@ function Footer() {
           <Typography>{t("footer.text")}</Typography>
           <Typography> {t("footer.Copyright")}</Typography>
           <div>
-            <p className="font-alfa text-xl pb-4 ">{t("footer.getupdate")}</p>
-            <div className="flex w-full bg-white ">
-              <input
-                className="flex-grow bg-transparent outline-none placeholder-gray-400 font-poppins pl-5"
-                placeholder={t("footer.input")}
-                type="text"
-              />
-              <button className="bg-orange-500 px-12 py-4 font-poppins">
-                {t("footer.btn")}
-              </button>
-            </div>
-          </div>
+    <p className="font-alfa text-xl pb-4 ">{t("footer.getupdate")}</p>
+    <div className="flex w-full bg-white ">
+        <input
+            className="flex-grow bg-transparent outline-none placeholder-gray-400 font-poppins pl-5 text-black"  // Thêm lớp text-black
+            placeholder={t("footer.input")}
+            type="text"
+        />
+        <button className="bg-orange-500 px-12 py-4 font-poppins">
+            {t("footer.btn")}
+        </button>
+    </div>
+</div>
+
+
+          
         </div>
         {/* right side */}
         <div className="w-1/2">

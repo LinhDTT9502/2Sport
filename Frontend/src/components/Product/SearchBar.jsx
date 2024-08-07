@@ -39,12 +39,13 @@ const SearchBar = () => {
       {results.length > 0 && (
         <div className="absolute z-60 w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-2">
           {results.map((product) => (
-            <Link to={`/product/${product.id}`} key={product.id} className="block p-2 hover:bg-gray-200">
-              <div className="flex items-center space-x-4">
-                <img src={product.mainImagePath} alt={product.productName} className="w-12 h-12 object-cover" />
-                <span>{product.productName}</span>
-              </div>
-            </Link>
+            <Link to={`/product/${product.id}`} key={product.id} className="block p-2 hover:bg-gray-100 transition duration-200">
+  <div className="flex items-center space-x-4">
+    <img src={product.mainImagePath} alt={product.productName} className="w-16 h-16 object-contain rounded-md" />
+    <span className="font-medium text-gray-700">{product.productName}</span>
+  </div>
+</Link>
+
           ))}
         </div>
 

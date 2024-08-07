@@ -37,8 +37,8 @@ namespace _2Sport_BE.Controllers
             try
             {
 				var userId = GetCurrentUserIdFromToken();
-
-				if (userId == 0)
+		
+				if (!userId)
 				{
 					return Unauthorized();
 				}

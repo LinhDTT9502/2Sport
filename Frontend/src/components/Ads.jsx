@@ -12,6 +12,8 @@ function Ads() {
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY || window.pageYOffset;
+            const a = 123;
+            
             controls.start({
                 opacity: scrollY > 100 ? 1 : 0,
                 y: scrollY > 100 ? 0 : 50,

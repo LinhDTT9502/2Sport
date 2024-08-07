@@ -2,13 +2,12 @@ import { addToCartAPI, getCartAPI, reduceCartItemAPI, remmoveCartItemAPI, update
 import { toast } from "react-toastify";
 
 export const addToCart = async (productId, quantityToAdd, token) => {
-  // console.log(quantity, token, productId);
   try {
+    console.log('check',productId, quantityToAdd, token);
     const response = await addToCartAPI(productId, quantityToAdd, token);
-    // toast.success("Product added to cart successfully");
     return response.data;
   } catch (error) {
-    console.error('Add to cart failed', error);
+    console.error('Thêm vào giỏ hàng thất bại:', error);
     toast.error("Chỉ còn 1 sản phẩm!");
     throw error;
   }
@@ -19,8 +18,7 @@ export const getUserCart = async (sortBy = '') => {
     const response = await getCartAPI(sortBy);
     return response.data.data.$values;
   } catch (error) {
-    // console.error('Error fetching cart:', error);
-    // toast.error('Error fetching cart');
+    console.error('Lỗi khi lấy giỏ hàng:', error);
     throw error;
   }
 };
@@ -30,8 +28,7 @@ export const reduceCartItem = async (id, token) => {
     const response = await reduceCartItemAPI(id, token);
     return response;
   } catch (error) {
-    console.error('Error fetching cart:', error);
-    // toast.error('Error fetching cart');
+    console.error('Lỗi khi giảm số lượng sản phẩm:', error);
     throw error;
   }
 };
@@ -41,8 +38,8 @@ export const removeCartItem = async (id, token) => {
     const response = await remmoveCartItemAPI(id, token);
     return response;
   } catch (error) {
-    console.error('Error fetching cart:', error);
-    toast.error('Error fetching cart');
+    console.error('Lỗi khi xoá sản phẩm khỏi giỏ hàng:', error);
+    toast.error('Lỗi khi xoá sản phẩm khỏi giỏ hàng');
     throw error;
   }
 };
@@ -50,11 +47,11 @@ export const removeCartItem = async (id, token) => {
 export const updateCartItemQuantity = async (cartItemId, quantity, token) => {
   try {
     const response = await updateCartItemQuantityAPI(cartItemId, quantity, token);
-    toast.success("Cart item quantity updated successfully");
+    toast.success("Cập nhật số lượng sản phẩm trong giỏ hàng thành công");
     return response.data;
   } catch (error) {
-    console.error('Error updating cart item quantity:', error);
-    toast.error('Error updating cart item quantity: ' + error.message);
+    console.error('Lỗi khi cập nhật số lượng sản phẩm:', error);
+    toast.error('Lỗi khi cập nhật số lượng sản phẩm: ' + error.message);
     throw error;
   }
 };
